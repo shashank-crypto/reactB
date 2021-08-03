@@ -13,7 +13,9 @@ function App() {
   const [search , setSearch] = useState("");
   const [query , setQuery] = useState('Peanut')
 
+  // eslint-disable-next-line
   useEffect(() => {
+    // eslint-disable-next-line
     getRecipes();
   } , [query] )
 
@@ -50,9 +52,11 @@ function App() {
           Search
         </button>
       </form>
-      {recipes.map((recipe,index) => (
-        <Recipe key={index} title={recipe.recipe.label} calories={recipe.recipe.calories} image={recipe.recipe.image}/>
-      ))}
+      <div className="recipes">
+        {recipes.map((recipe,index) => (
+          <Recipe key={index} title={recipe.recipe.label} calories={recipe.recipe.calories} image={recipe.recipe.image}ingredients={recipe.recipe.ingredients}/>
+        ))}
+      </div>
     </div>
   );
 }
